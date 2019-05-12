@@ -2,7 +2,8 @@ CREATE DATABASE pelis_fav_db;
 
 USE pelis_fav_db;
 
-CREATE TABLE Peliculas (
+CREATE TABLE Peliculas
+(
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(200),
     descripcion VARCHAR(255),

@@ -12,6 +12,10 @@ class PeliculasRoutes {
     }
     configurar() {
         this.router.get("/", peliculas_controllers_1.default.index);
+        this.router.get("/:id", peliculas_controllers_1.default.obtenerPelicula);
+        this.router.post("/", peliculas_controllers_1.default.crear);
+        this.router.put("/:id", peliculas_controllers_1.default.actualizar);
+        this.router.delete("/:id", peliculas_controllers_1.default.eliminar);
     }
 }
 const peliculasRoutes = new PeliculasRoutes();
