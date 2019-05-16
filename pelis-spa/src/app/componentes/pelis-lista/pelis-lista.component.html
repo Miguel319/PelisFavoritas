@@ -1,3 +1,25 @@
-<div class="col-md-4">
-    
+<div class="col-md-4" *ngFor="let pelicula of peliculas">
+  <div class="card text-center">
+    <div
+      class="card-header 
+      border-primary
+      d-flex justify-content-between align-items-center card-primary"
+    >
+      {{ pelicula.titulo }}
+      <button class="btn btn-danger" (click)="eliminarPelicula(pelicula.id)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="pelicula.imagen" class="card-img-top" id="imagen" />
+    <div class="card-body">
+      <p><b>Descripción: </b>{{ pelicula.descripcion }}</p>
+      <p><b>Director/es: </b>{{ pelicula.director }}</p>
+      <a
+        [routerLink]="['/peliculas/editar', pelicula.id]"
+        class="btn btn-info btn-block"
+      >
+        Editar película
+      </a>
+    </div>
+  </div>
 </div>

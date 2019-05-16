@@ -19,15 +19,15 @@ export class PeliculasService {
     return this.http.get(`${this.API_URI}/peliculas/${id}`);
   }
 
-  agregarPelicula(pelicula: Pelicula): Observable<Pelicula> {
+  agregarOEditarPelicula(pelicula: Pelicula): Observable<Pelicula> {
     return this.http.post(`${this.API_URI}/peliculas`, pelicula);
   }
 
-  actualizarPelicula(id: number, pelicula: Pelicula): Observable<Pelicula> {
+  actualizarPelicula(id: number | string, pelicula: Pelicula): Observable<Pelicula> {
     return this.http.put(`${this.API_URI}/peliculas/${id}`, pelicula);
   }
 
-  eliminarPelicula(id: number): Observable<Pelicula> {
+  eliminarPelicula(id: number | string): Observable<Pelicula> {
     return this.http.delete(`${this.API_URI}/peliculas/${id}`);
   }
 }

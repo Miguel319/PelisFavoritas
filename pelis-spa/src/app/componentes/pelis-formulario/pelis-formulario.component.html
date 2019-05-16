@@ -1,3 +1,52 @@
-<p>
-  pelis-formulario works!
-</p>
+<div class="col-md-4 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <input
+            type="text"
+            name="titulo"
+            placeholder="Título"
+            [(ngModel)]="pelicula.titulo"
+            class="form-control"
+            autofocus
+          />
+          <textarea
+            name="descripcion"
+            placeholder="Descripción"
+            [(ngModel)]="pelicula.descripcion"
+            rows="3"
+            class="form-control"
+          ></textarea>
+          <input
+            type="text"
+            name="director"
+            [(ngModel)]="pelicula.director"
+            placeholder="Director"
+            class="form-control"
+          />
+          <input
+            type="url"
+            name="imagen"
+            placeholder="URL de la imagen"
+            [(ngModel)]="pelicula.imagen"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-primary btn-block" (click)="modoEditar ? actualizarPelicula() : guardarPelicula()">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <img [src]="pelicula.imagen == '' ? '/assets/no-img.png' : 'pelicula.png' " class="card-img-top" />
+    <p *ngIf="pelicula.titulo !== ''"><b>Título:</b><br>{{ pelicula.titulo }}</p>
+    <p *ngIf="pelicula.descripcion !== ''"><b>Descripción:</b> <br>{{ pelicula.descripcion }}</p>
+    <p *ngIf="pelicula.director !== ''"><b>Director:</b><br>{{ pelicula.director }}</p>
+    <p><b>Fecha:</b><br>{{ pelicula.creado_en | date: "dd/MM/yyyy" }}</p>
+  </div>
+</div>
